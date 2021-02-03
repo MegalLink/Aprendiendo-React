@@ -14,7 +14,7 @@ const APP=()=>{
     <div>
     <Usuario/> 
     <Contador/>
-    <Boton onClick={()=>cambiarEstado(false)}>Cerrar Sesion</Boton>
+    <Boton largo onClick={()=>cambiarEstado(false)}>Cerrar Sesion</Boton>
     </div>
     :
     <>

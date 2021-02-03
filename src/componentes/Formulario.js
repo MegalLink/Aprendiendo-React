@@ -1,5 +1,6 @@
 import styles from'./Formulario.module.css';
 import React, { useState } from "react";
+import Boton from '../elementos/Boton';
 const Formulario = (props) => {
   const [usuario, cambiarUsuario] = useState("");
   const [password, cambiarPassword] = useState("");
@@ -52,7 +53,7 @@ const Formulario = (props) => {
             onChange={onChangeInputs}
           />
         </div>
-        <button className={styles.boton} type="submit" >Iniciar Sesion</button>
+        <Boton  type="submit" >Iniciar Sesion</Boton>
       </form>
     </div>
   );
