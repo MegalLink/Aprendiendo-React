@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Usuario from './componentes/Usuario.js'
+import Formulario from './componentes/Formulario'
+import Contador from './componentes/Contador';
+import Boton from './elementos/Boton'
+const APP=()=>{
+  //Hook para autorenderizar 
+  const [sesion,cambiarEstado]=useState(true) 
+  return(
+<div className="contenedor">
+  {sesion?
+    <div>
+    <Usuario/> 
+    <Contador/>
+    <Boton onClick={()=>cambiarEstado(false)}>Cerrar Sesion</Boton>
+    </div>
+    :
+    <>
+    <p>No has iniciado sesion</p>
+    <Formulario cambiarEstado={cambiarEstado}/>
+
+    
+    </>
+    }
+</div>
+  );
+}
+
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <APP/>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
