@@ -14,8 +14,8 @@ const amigos=['Jair','Henry','Eve']
        <Titulo/>
       {pais && <Parrafo>Eres de:{pais}</Parrafo>}
       <ul>
-        {amigos.map((amigo,index)=>
-           <li key={index}>{amigo}</li>
+        {amigos.map((amigo,index)=>{
+           return <li key={index}>{amigo}</li>}
         )}
       </ul>
       <div>Saludos</div>
