@@ -6,6 +6,7 @@ import Boton from "../elementos/Boton";
 import Blog from "../componentes/Blog";
 import styled,{css} from 'styled-components'
 import { BrowserRouter, Route,NavLink } from "react-router-dom";
+import Post from "../componentes/Post";
 const App = () => {
   const [sesion, cambiarEstado] = useState(true);
 
@@ -29,7 +30,7 @@ const App = () => {
               <Blog></Blog>
             </Route>
             <Route path="/contador" exact={true} component={Contador}/>
-              
+              <Route path="/post/:id" component={Post}/>
 
             <Boton largo onClick={() => cambiarEstado(false)}>
               Cerrar Sesion
@@ -61,9 +62,10 @@ a:hover{
 a.active::after{
       
       content: '';
-      display: block;
+      display:block;
+      margin-top:5px;
       height: 2px;
-        background-color:blue;
+      background-color:blue;
 }
 
 `

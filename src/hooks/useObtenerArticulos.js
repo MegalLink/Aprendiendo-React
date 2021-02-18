@@ -9,15 +9,18 @@ const useObtenerArticulos=()=>{
          establecerArticulos([
              {
                 id:1,
-                titulo:"Titulo articulo 1"
+                titulo:"Titulo articulo 1",
+                contenido:"Contenido de esta madre"
              },
              {
                 id:2,
-                titulo:"Titulo articulo 2"
+                titulo:"Titulo articulo 2",
+                contenido:"Contenido de esta madre"
              },
              {
                 id:3,
-                titulo:"Titulo articulo 3"
+                titulo:"Titulo articulo 3",
+                contenido:"Contenido de esta madre"
              },
          ])  
          establecerCargado(false); 
