@@ -4,7 +4,8 @@ import Formulario from "../componentes/Formulario";
 import Contador from "../componentes/Contador";
 import Boton from "../elementos/Boton";
 import Blog from "../componentes/Blog";
-import { BrowserRouter, Route,Link } from "react-router-dom";
+import styled,{css} from 'styled-components'
+import { BrowserRouter, Route,NavLink } from "react-router-dom";
 const App = () => {
   const [sesion, cambiarEstado] = useState(true);
 
@@ -14,22 +15,21 @@ const App = () => {
         {sesion ? (
           <div>
               <h1>Mi blog personal</h1>
-              <nav>
-                <Link to="/">Inicio</Link>
-                <Link to="/blog">Blog</Link>
-                <Link to="/contador">Contador</Link>
-              </nav>
-            <Route path="/" exact={true}>
+              <Navbar>
+                <NavLink to="/inicio">Inicio</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/contador">Contador</NavLink>
+              </Navbar>
+            <Route path="/inicio" exact={true}>
               
 
               <Usuario />
             </Route>
-            <Route path="/blog">
+            <Route path="/blog" exact={true}>
               <Blog></Blog>
             </Route>
-            <Route path="/contador">
-              <Contador />
-            </Route>
+            <Route path="/contador" exact={true} component={Contador}/>
+              
 
             <Boton largo onClick={() => cambiarEstado(false)}>
               Cerrar Sesion
@@ -46,4 +46,25 @@ const App = () => {
   );
 };
 
+const Navbar=styled.nav`
+display:flex;
+justify-content:space-around;
+margin: 10px 10px;
+a{
+    text-decoration:none;
+    color:red;
+    
+}
+a:hover{
+    color:blue;
+}
+a.active::after{
+      
+      content: '';
+      display: block;
+      height: 2px;
+        background-color:blue;
+}
+
+`
 export default App;
